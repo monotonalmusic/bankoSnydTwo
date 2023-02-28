@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<script src="seedrandom.js" charset="utf-8"></script>
+<script src="generator.js" charset="utf-8"></script>
+  <head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> Banko med SNYD </h1>
+    <br>
+    <br>
+
+    <div id="knapper">
+    <input name="tekstboks" id="tekstboks" size=40 placeholder="skriv dit navn her"></input>
+    <button id="knap" type="button" name="button" onclick="Math.seedrandom(tekstboks.value),update_plates()">Generer plader</button>
+    <input type="number"  min="1" max="90" id="called-number" placeholder="Insert number">
+    <button id="generate" onclick="addPulledValues()">Add number</button>
+    </div>
+    <h2>1. Runde</h2>
+    <table id="p1">
+      <tr id="p11">
+        <td onclick="myFunction(this)" style="background-color:white" id="p111"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p112"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p113"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p114"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p115"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p116"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p117"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p118"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p119"></td>
+      </tr>
+      <tr id="p12">
+        <td onclick="myFunction(this)" style="background-color:white" id="p121"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p122"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p123"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p124"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p125"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p126"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p127"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p128"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p129"></td>
+      </tr>
+      <tr id="p13">
+        <td onclick="myFunction(this)" style="background-color:white" id="p131"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p132"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p133"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p134"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p135"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p136"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p137"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p138"></td>
+        <td onclick="myFunction(this)" style="background-color:white" id="p139"></td>
+      </tr>
+    </table>
+    
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
