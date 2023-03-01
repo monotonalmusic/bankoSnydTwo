@@ -6,6 +6,8 @@ function myFunction(elmnt) {
     elmnt.style.backgroundColor = "white";
   }
 }
+
+
 var værdi;
 var celle;
 let newArray = []
@@ -13,9 +15,7 @@ function nyfunktion(værdi, celle){
     celle.innerHTML = værdi;
 }
 
-
-
-function gen_int(i){
+function gen_int(i) {
     var number = Math.floor(Math.random()*10+(i*10))
     while (number===0) {
         var number = Math.floor(Math.random()*10+(i*10))
@@ -48,8 +48,6 @@ function generate_row(){
     }
     return(row.sort());}
 
-
-
 function contains_digits(rows){
     var concat = rows[0].concat(rows[1],rows[2]);
     for (var i = 1; i < 9; i++) {
@@ -63,8 +61,8 @@ function contains_digits(rows){
     }
     return(true)
 }
+
 function generate_rows_check(){
-    console.log(rows)
     var rows = new Array(generate_row(),generate_row(),generate_row())
     while (!contains_digits(rows)) {
         var rows = new Array(generate_row(),generate_row(),generate_row())
@@ -72,47 +70,45 @@ function generate_rows_check(){
     console.log(rows);
     return(rows)
 }
-function update_plates(){
-for(var x1 = 1;x1<=1;x1++){
-  for(var x2=1;x2<=3;x2++){
-      for(var x3=1;x3<=9;x3++){
-        var celle = "p" + String(1) + String(x2) + String(x3);
-        document.getElementById(celle).innerHTML = "";
-  }
-}
-}
-var dict = {};
-for (var n = 1; n <= 1; n++) {
 
-var cols = [];
-for (var i = 0; i < 9; i++) {
-    var col = generate_col(i);
-    cols.push(col);
-}
+function update_plates() {
+    for(var x1 = 1;x1<=1;x1++){
+        for(var x2=1;x2<=3;x2++){
+            for(var x3=1;x3<=9;x3++){
+                var celle = "p" + String(1) + String(x2) + String(x3);
+                document.getElementById(celle).innerHTML = "";
+            }
+        }
+    }
 
-var rows_choose = generate_rows_check();
-
-
-
-var chosen_row;
-
-for (var j = 0; j < 3; j++) {
-for (var i = 0; i < rows_choose[j].length; i++) {
-    var k = rows_choose[j][i]
-    var celle = "p"+String(n)+String(j+1) + String(k);
-    dict[celle] =cols[k-1][j];
-}
-}
-}
+    var dict = {};
+    for (var n = 1; n <= 1; n++) {
+        var cols = [];
+        for (var i = 0; i < 9; i++) {
+            var col = generate_col(i);
+            cols.push(col);
+        }
+        
+        var rows_choose = generate_rows_check();
+        var chosen_row;
+        for (var j = 0; j < 3; j++) {
+            for (var i = 0; i < rows_choose[j].length; i++) {
+                    var k = rows_choose[j][i]
+                    var celle = "p"+String(n)+String(j+1) + String(k);
+                    dict[celle] = cols[k-1][j];
+                    console.log(dict[celle])
+                }
+            }
+    }
 
 
-  for(var key in dict) {
-    var value = dict[key];
-    newArray.push(value);
-    console.log(newArray);
-    nyfunktion(value,document.getElementById(key))
-  }
-  print(newArray);
+    for(var key in dict) {
+        var value = dict[key];
+        newArray.push(value);
+        nyfunktion(value,document.getElementById(key))
+        console.log(document.getElementById(key))
+        }
+    print(newArray);
 }
 
 let inArray = [];
@@ -124,5 +120,33 @@ function addPulledValues() {
 
 function print(newArray) {
     console.log(newArray);
+    let firstArray = newArray.splice(0,5);
+    console.log(firstArray);
+    let secondArray = newArray.splice(0,5);
+    console.log(secondArray);
+    let thirdArray = newArray.splice(0,5);
+    console.log(thirdArray); 
+    let addedArray = firstArray.concat(secondArray, thirdArray);
+    let sortedArray = addedArray.sort(function (a,b){return a-b});
+    console.log(sortedArray);
 }
 
+//compares two arrays to make sure they are matching
+function checkArray(newArray, inArray) {
+        for (var i = 0; i < newArray.length; i++) {
+        if (inArray.indexOf(newArray[i]) === -1) {
+            return false;
+        }
+        }
+        return true;
+    }
+
+
+
+//Function cheat ()
+//Make loop
+//Generate ID
+//Generate bingo plate with ID (already made)
+//Compare values on plate with values on desired 'result'
+//If matched, return ID and delete previously made plate
+//If not a match, generate new ID and continue trying
