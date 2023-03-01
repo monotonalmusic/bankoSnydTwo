@@ -5,6 +5,7 @@ function myFunction(elmnt) {
   } else {
     elmnt.style.backgroundColor = "white";
   }
+
 }
 
 
@@ -13,6 +14,7 @@ var celle;
 let newArray = []
 function nyfunktion(værdi, celle){
     celle.innerHTML = værdi;
+
 }
 
 function gen_int(i) {
@@ -27,10 +29,12 @@ function gen_int(i) {
         var number = Math.ceil(Math.random()*9)
     }
     return number
+
 }
 
 function hasDuplicates(array) {
     return (new Set(array)).size !== array.length;
+
 }
 
 function generate_col(i){
@@ -39,14 +43,17 @@ function generate_col(i){
         var col =Array.from({length: 3}, () => gen_int(i));
     }
     return(col.sort());
+
 }
 
 function generate_row(){
-    var row =Array.from({length: 5}, () => gen_int(100));
+    var row = Array.from({length: 5}, () => gen_int(100));
     while (hasDuplicates(row) ==true) {
         var row =Array.from({length: 5}, () => gen_int(100));
     }
-    return(row.sort());}
+    return(row.sort());
+
+}
 
 function contains_digits(rows){
     var concat = rows[0].concat(rows[1],rows[2]);
@@ -60,6 +67,7 @@ function contains_digits(rows){
         return(false)
     }
     return(true)
+
 }
 
 function generate_rows_check(){
@@ -69,6 +77,7 @@ function generate_rows_check(){
     }
     console.log(rows);
     return(rows)
+
 }
 
 function update_plates() {
@@ -90,7 +99,6 @@ function update_plates() {
         }
         
         var rows_choose = generate_rows_check();
-        var chosen_row;
         for (var j = 0; j < 3; j++) {
             for (var i = 0; i < rows_choose[j].length; i++) {
                     var k = rows_choose[j][i]
@@ -101,7 +109,6 @@ function update_plates() {
             }
     }
 
-
     for(var key in dict) {
         var value = dict[key];
         newArray.push(value);
@@ -109,6 +116,7 @@ function update_plates() {
         console.log(document.getElementById(key))
         }
     print(newArray);
+
 }
 
 let inArray = [];
@@ -116,6 +124,7 @@ function addPulledValues() {
     let inputNumber = document.getElementById("called-number").value;
     inArray.push(inputNumber)
     console.log(inArray);
+
 }
 
 function print(newArray) {
@@ -129,6 +138,7 @@ function print(newArray) {
     let addedArray = firstArray.concat(secondArray, thirdArray);
     let sortedArray = addedArray.sort(function (a,b){return a-b});
     console.log(sortedArray);
+
 }
 
 //compares two arrays to make sure they are matching
@@ -139,8 +149,10 @@ function checkArray(newArray, inArray) {
         }
         }
         return true;
-    }
 
+}
+
+update_plates()
 
 
 //Function cheat ()
